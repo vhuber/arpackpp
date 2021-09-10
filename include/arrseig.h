@@ -85,13 +85,14 @@ class ARrcStdEig {
 
 
  // a.3) Pure output variables.
-
+ 
+ public:
   int     nconv;      // Number of "converged" Ritz values.
   ARFLOAT *EigValI;   // Imaginary part of eigenvalues (nonsymmetric problems).
   ARTYPE  *EigValR;   // Eigenvalues (real part only if problem is nonsymmetric).
   ARTYPE  *EigVec;    // Eigenvectors.
 
-
+protected:
  // b) Protected functions:
 
  // b.1) Memory control functions.
@@ -621,11 +622,11 @@ inline int ARrcStdEig<ARFLOAT, ARTYPE>::CheckNcv(int ncvp)
   // Adjusting ncv if ncv <= nev or ncv > n.
 
   if (ncvp < nev+1) {
-    if (ncvp) ArpackError::Set(ArpackError::NCV_OUT_OF_BOUNDS);
+    //if (ncvp) ArpackError::Set(ArpackError::NCV_OUT_OF_BOUNDS);
     return ((2*nev+1)>n)?n:(2*nev+1);
   }
   else if (ncvp > n) {
-    ArpackError::Set(ArpackError::NCV_OUT_OF_BOUNDS);
+    //ArpackError::Set(ArpackError::NCV_OUT_OF_BOUNDS);
     return n;
   }
   else {
@@ -652,7 +653,7 @@ inline int ARrcStdEig<ARFLOAT, ARTYPE>::CheckMaxit(int maxitp)
 {
 
   if (maxitp >= 1) return maxitp;
-  if (maxitp < 0)  ArpackError::Set(ArpackError::MAXIT_NON_POSITIVE);
+  //if (maxitp < 0)  ArpackError::Set(ArpackError::MAXIT_NON_POSITIVE);
   return 100*nev;
 
 } // CheckMaxit.
