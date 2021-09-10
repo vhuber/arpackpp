@@ -164,7 +164,7 @@ int ARGenEig<ARFLOAT, ARTYPE, ARFOP, ARFB>::FindArnoldiBasis()
   // Changing to auto shift mode.
 
   if (!this->AutoShift) {
-    ArpackError::Set(ArpackError::CHANGING_AUTOSHIFT, "FindArnoldiBasis");
+    //ArpackError::Set(ArpackError::CHANGING_AUTOSHIFT, "FindArnoldiBasis");
     this->AutoShift=true;
   }
 
