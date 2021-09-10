@@ -18,8 +18,8 @@
 #define ARCOMP_H
 
 #include <complex>
-
-#ifdef __GNUG__
+// asinding / vhuber: added _MSC_VER for compatibility with MSVC
+#if defined __GNUG__ || defined _MSC_VER
   
 #define arcomplex std::complex
 
