@@ -162,6 +162,7 @@ class ArpackError: public ArpackError_static<void> {
   ArpackError() { code = NO_ERRORS; };
   // Constructor that does nothing.
 
+   int code;
 };
 
 inline void ArpackError::Print(const std::string& where, const std::string& message)
